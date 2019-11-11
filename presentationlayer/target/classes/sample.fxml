@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+
+<SplitPane dividerPositions="0.6655518394648829" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="328.0">
+         <children>
+            <ImageView id="background_game" fx:id="background_game" fitHeight="398.0" fitWidth="395.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@background_game.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="5.0" text="Game" textFill="WHITE" />
+            <TilePane layoutX="26.0" layoutY="21.0" prefHeight="106.0" prefWidth="99.0" />
+            <ImageView fitHeight="283.0" fitWidth="197.0" layoutX="76.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@circle_piece.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="207.0">
+         <children>
+            <Label layoutX="14.0" layoutY="5.0" text="Player" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
