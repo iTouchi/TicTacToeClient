@@ -4,20 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>TicTacToeClient</groupId>
+    <groupId>groupId</groupId>
     <artifactId>TicTacToeClient</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <modules>
-        <module>presentationlayer</module>
-        <module>logic</module>
-    </modules>
-
+    <!--
+    Some custom properties. Maven also have some properties that can be defined here.
+-->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <codeVersion>11</codeVersion>
-        <openfxVersion>12</openfxVersion>
-        <logback.version>1.2.3</logback.version>
+        <mavenVersion>3.8.0</mavenVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--        <openfxVersion>11.0.2</openfxVersion>-->
     </properties>
 
     <build>
@@ -25,60 +23,63 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${mavenVersion}</version>
                 <configuration>
                     <release>${codeVersion}</release>
                     <source>${codeVersion}</source>
                     <target>${codeVersion}</target>
                 </configuration>
             </plugin>
-            <!--    The Surefire Plugin is used during the test phase of the build lifecycle
-                    to execute the unit tests of an application-->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>2.19.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>1.0.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>5.0.3</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
         </plugins>
     </build>
 
-    <dependencies>
-        <!-- Junit5 for unit testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.5.0</version>
-            <scope>test</scope>
-        </dependency>
-        <!--
-    OpenFX dependencies see:
-    https://openjdk.java.net/projects/openjfx/
+    <!--
+        OpenFX dependencies see:
+        https://openjdk.java.net/projects/openjfx/
     -->
+    <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>${openfxVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-graphics</artifactId>
-            <version>${openfxVersion}</version>
+            <version>13.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>${openfxVersion}</version>
+            <version>13.0.1</version>
         </dependency>
 
-        <!-- Logback -->
-        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <!-- Junit5 for unit testing -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.1.0</version>
+            <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>13.0.1</version>
+        </dependency>
     </dependencies>
 
-    
+
+
 </project>
